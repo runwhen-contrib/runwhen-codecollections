@@ -1,0 +1,26 @@
+#Created by robot_tests
+#runbook-cb-template.yaml
+apiVersion: project-468.com/v1
+kind: Runbook
+metadata:
+  name: test-sample-ws--gke-zonal-availability--runbook
+  namespace: default
+  labels:
+    origin-workspace: test-sample-ws
+    workspace: test-sample-ws
+    origin-slx: test-sample-ws--gke-zonal-availability
+    slx: test-sample-ws--gke-zonal-availability
+spec:
+  location: k3d-location
+  description: GCP/GKE calls to add to our nodepool should succeed 99.99% of the time
+  requirements:
+  - pip: requirements.txt
+  codeBundle:
+    repoUrl: https://git.dev.project-468.com/468-test/test-codebundles
+    pathToRobot: gke-general/runbook.robot
+    ref: main
+  intervalStrategy: intermezzo
+  intervalSeconds: 360
+  configProvided:
+  - name: rb_foo
+    value: rb_bar

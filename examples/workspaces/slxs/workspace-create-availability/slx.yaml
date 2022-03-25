@@ -1,0 +1,19 @@
+#Created by robot_tests
+#slx-min-template.yaml
+apiVersion: project-468.com/v1
+kind: Slx
+metadata:
+  name: test-sample-ws--workspace-create-availability
+  namespace: default
+  labels:
+    origin-workspace: test-sample-ws
+    workspace: test-sample-ws
+spec:
+  statement: "Workspace creation tests should run successfully 99% of the time"
+  asMeasuredBy: ""
+  owners:
+  - "vui.le@runwhen.com"
+  metricType: gauge
+  configProvided:
+  - name: slx_name
+    value: workspace-create-availability

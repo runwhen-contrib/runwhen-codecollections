@@ -1,0 +1,17 @@
+#Created by robot_tests
+#hook-min-template.yaml
+apiVersion: project-468.com/v1
+kind: Hook
+metadata:
+  name: test-sample-ws--gitlab-merge-success-rate--hook
+  namespace: default
+  labels:
+    origin-workspace: test-sample-ws
+    workspace: test-sample-ws
+    origin-slx: test-sample-ws--gitlab-merge-success-rate
+    slx: test-sample-ws--gitlab-merge-success-rate
+spec:
+  hookRules:
+    - name: run-all
+      alertLabelSelector: ""
+      taskTagMatcher: "*"

@@ -1,0 +1,27 @@
+#Created by robot_tests
+#sli-min-template.yaml
+apiVersion: project-468.com/v1
+kind: Sli
+metadata:
+  name: test-sample-ws--corestate-cluster-health--sli
+  namespace: default
+  labels:
+    origin-workspace: test-sample-ws
+    workspace: test-sample-ws
+    origin-slx: test-sample-ws--corestate-cluster-health
+    slx: test-sample-ws--corestate-cluster-health
+spec:
+  locations:
+  - k3d-location
+  description: The K8s health score of the cluster should be >98%, 99% of the time
+  codeBundle:
+    repoUrl: https://git.dev.project-468.com/468-test/test-codebundles
+    pathToRobot: kube-health-score/sli.robot
+    ref: main
+  requirements:
+  - pip: requirements.txt
+  intervalStrategy: intermezzo
+  intervalSeconds: 360
+  configProvided:
+  - name: sli_foo
+    value: sli_bar

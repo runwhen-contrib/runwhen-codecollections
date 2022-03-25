@@ -1,0 +1,26 @@
+#Created by robot_tests
+#runbook-cb-template.yaml
+apiVersion: project-468.com/v1
+kind: Runbook
+metadata:
+  name: test-sample-ws--corestate-cpu-capacity--runbook
+  namespace: default
+  labels:
+    origin-workspace: test-sample-ws
+    workspace: test-sample-ws
+    origin-slx: test-sample-ws--corestate-cpu-capacity
+    slx: test-sample-ws--corestate-cpu-capacity
+spec:
+  location: k3d-location
+  description: Runbook description
+  requirements:
+  - pip: requirements.txt
+  codeBundle:
+    repoUrl: https://git.dev.project-468.com/468-test/test-codebundles
+    pathToRobot: gcp-ops-suite/runbook.robot
+    ref: main
+  intervalStrategy: intermezzo
+  intervalSeconds: 360
+  configProvided:
+  - name: stackdriver_metric_name
+    value: agent.googleapis.com/memory/percent_used

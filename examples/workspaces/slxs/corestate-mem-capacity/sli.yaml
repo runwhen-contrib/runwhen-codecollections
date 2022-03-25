@@ -1,0 +1,27 @@
+#Created by robot_tests
+#sli-min-template.yaml
+apiVersion: project-468.com/v1
+kind: Sli
+metadata:
+  name: test-sample-ws--corestate-cpu-capacity--sli
+  namespace: default
+  labels:
+    origin-workspace: test-sample-ws
+    workspace: test-sample-ws
+    origin-slx: test-sample-ws--corestate-cpu-capacity
+    slx: test-sample-ws--corestate-cpu-capacity
+spec:
+  locations:
+  - k3d-location
+  description: SLI description
+  codeBundle:
+    repoUrl: https://git.dev.project-468.com/468-test/test-codebundles
+    pathToRobot: gcp-ops-suite/sli.robot
+    ref: main
+  requirements:
+  - pip: requirements.txt
+  intervalStrategy: intermezzo
+  intervalSeconds: 360
+  configProvided:
+  - name: stackdriver_metric_name
+    value: agent.googleapis.com/memory/percent_used

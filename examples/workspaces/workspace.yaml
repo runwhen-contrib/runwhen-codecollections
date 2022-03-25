@@ -1,0 +1,61 @@
+kind: Workspace
+apiVersion: project-468.com/v1
+metadata:
+  name: test-sample-ws
+  labels:
+    workspace: test-sample-ws
+spec:
+  permissions:
+  - user: tester@runwhen.com
+    role: admin
+  enabledLocations: []
+  configProvided:
+  - name: workspace_foo
+    value: workspace_bar
+  slxGroups:
+  - name: cor-group
+    slxs:
+    - corestate-cpu-capacity
+    - corestate-mem-capacity
+    - corestate-cluster-health
+    - corestate-node-capacity
+    - corestate-cluster-triage
+  - name: loc-group
+    slxs:
+    - loc-01-cluster-health
+    - loc-1-cluster-triage
+  - name: uf-group
+    slxs:
+    - workspace-create-availability
+    - sli-img-build-deploy
+  slxRelationships:
+  - subject: workspace-create-availability
+    verb: dependent-on
+    directObject: sli-img-build-deploy
+  - subject: sli-img-build-deploy
+    verb: dependent-on
+    directObject: gitlab-merge-success-rate
+  - subject: sli-img-build-deploy
+    verb: dependent-on
+    directObject: loc-01-cluster-health
+  - subject: sli-img-build-deploy
+    verb: dependent-on
+    directObject: corestate-cluster-health
+  - subject: corestate-cluster-triage
+    verb: dependent-on
+    directObject: corestate-mem-capacity
+  - subject: corestate-cluster-triage
+    verb: dependent-on
+    directObject: corestate-cpu-capacity
+  - subject: corestate-cluster-triage
+    verb: dependent-on
+    directObject: corestate-node-capacity
+  - subject: corestate-cluster-health
+    verb: dependent-on
+    directObject: corestate-cluster-triage
+  - subject: corestate-node-capacity
+    verb: dependent-on
+    directObject: gke-zonal-availability
+  - subject: workspace-create-availability
+    verb: dependent-on
+    directObject: loc-01-cluster-health

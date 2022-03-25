@@ -1,0 +1,19 @@
+#Created by robot_tests
+#slx-min-template.yaml
+apiVersion: project-468.com/v1
+kind: Slx
+metadata:
+  name: test-sample-ws--corestate-node-capacity
+  namespace: default
+  labels:
+    origin-workspace: test-sample-ws
+    workspace: test-sample-ws
+spec:
+  statement: "The corestate node count should be <60% of the autoscaler max"
+  asMeasuredBy: ""
+  owners:
+  - "tester@runwhen.com"
+  metricType: gauge
+  configProvided:
+  - name: slx_name
+    value: corestate-node-capacity
