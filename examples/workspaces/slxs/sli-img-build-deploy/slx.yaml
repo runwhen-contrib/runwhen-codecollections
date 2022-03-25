@@ -1,0 +1,19 @@
+#Created by robot_tests
+#slx-min-template.yaml
+apiVersion: project-468.com/v1
+kind: Slx
+metadata:
+  name: test-sample-ws--sli-img-build-deploy
+  namespace: default
+  labels:
+    origin-workspace: test-sample-ws
+    workspace: test-sample-ws
+spec:
+  statement: "The container image build / deploy process should complete in <60 seconds with 0 errors, 95% of the time"
+  asMeasuredBy: ""
+  owners:
+  - "kyle.forster@runwhen.com"
+  metricType: gauge
+  configProvided:
+  - name: slx_name
+    value: sli-img-build-deploy

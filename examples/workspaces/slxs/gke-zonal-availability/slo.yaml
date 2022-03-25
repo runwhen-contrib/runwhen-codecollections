@@ -1,0 +1,20 @@
+#Created by robot_tests
+#slo-min-template.yaml
+apiVersion: project-468.com/v1
+kind: Slo
+metadata:
+  name: test-sample-ws--gke-zonal-availability--slo
+  namespace: default
+  labels:
+    origin-workspace: test-sample-ws
+    workspace: test-sample-ws
+    origin-slx: test-sample-ws--gke-zonal-availability
+    slx: test-sample-ws--gke-zonal-availability
+spec:
+  codeBundle:
+    repoUrl: https://git.dev.project-468.com/468-platform/rw-codebundles
+    pathToYaml: default/slo/queries.yaml
+    ref: main
+  sloSpecType: simple-mwmb
+  objective: 99.999 #Fire nearly immediately
+  threshold: 26

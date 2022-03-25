@@ -1,0 +1,19 @@
+#Created by robot_tests
+#slx-min-template.yaml
+apiVersion: project-468.com/v1
+kind: Slx
+metadata:
+  name: test-sample-ws--corestate-cluster-triage
+  namespace: default
+  labels:
+    origin-workspace: test-sample-ws
+    workspace: test-sample-ws
+spec:
+  statement: "A general runbook to triage issues in papi, coresync apps"
+  asMeasuredBy: ""
+  owners:
+  - "justin.pye@runwhen.com"
+  metricType: gauge
+  configProvided:
+  - name: slx_name
+    value: corestate-cluster-triage

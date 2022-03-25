@@ -1,0 +1,26 @@
+#Created by robot_tests
+#runbook-cb-template.yaml
+apiVersion: project-468.com/v1
+kind: Runbook
+metadata:
+  name: test-sample-ws--workspace-create-availability--runbook
+  namespace: default
+  labels:
+    origin-workspace: test-sample-ws
+    workspace: test-sample-ws
+    origin-slx: test-sample-ws--workspace-create-availability
+    slx: test-sample-ws--workspace-create-availability
+spec:
+  location: k3d-location
+  description: Workspace creation tests should run successfully 99% of the time
+  requirements:
+  - pip: requirements.txt
+  codeBundle:
+    repoUrl: https://git.dev.project-468.com/rw-private/rw-codebundles
+    pathToRobot: codebundle-collections/rw-workspaces-availability/runbook/runbook.robot
+    ref: main
+  intervalStrategy: intermezzo
+  intervalSeconds: 360
+  configProvided:
+  - name: rb_foo
+    value: rb_bar

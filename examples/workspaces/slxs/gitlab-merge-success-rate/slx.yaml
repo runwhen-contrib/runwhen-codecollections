@@ -1,0 +1,19 @@
+#Created by robot_tests
+#slx-min-template.yaml
+apiVersion: project-468.com/v1
+kind: Slx
+metadata:
+  name: test-sample-ws--gitlab-merge-success-rate
+  namespace: default
+  labels:
+    origin-workspace: test-sample-ws
+    workspace: test-sample-ws
+spec:
+  statement: "The gitlab response time of a known-good merge request/approve should be <45 seconds, 98% of the time"
+  asMeasuredBy: ""
+  owners:
+  - "kyle.forster@runwhen.com"
+  metricType: gauge
+  configProvided:
+  - name: slx_name
+    value: gitlab-merge-success-rate

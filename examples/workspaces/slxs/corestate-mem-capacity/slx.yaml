@@ -1,0 +1,19 @@
+#Created by robot_tests
+#slx-min-template.yaml
+apiVersion: project-468.com/v1
+kind: Slx
+metadata:
+  name: test-sample-ws--corestate-mem-capacity
+  namespace: default
+  labels:
+    origin-workspace: test-sample-ws
+    workspace: test-sample-ws
+spec:
+  statement: "The average node memory utilization in the corestate cluster should be <30%, 99% of the time"
+  asMeasuredBy: ""
+  owners:
+  - "tester@runwhen.com"
+  metricType: gauge
+  configProvided:
+  - name: slx_name
+    value: corestate-mem-capacity

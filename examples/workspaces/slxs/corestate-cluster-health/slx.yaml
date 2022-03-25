@@ -1,0 +1,19 @@
+#Created by robot_tests
+#slx-min-template.yaml
+apiVersion: project-468.com/v1
+kind: Slx
+metadata:
+  name: test-sample-ws--corestate-cluster-health
+  namespace: default
+  labels:
+    origin-workspace: test-sample-ws
+    workspace: test-sample-ws
+spec:
+  statement: "The K8s health score of the cluster should be >98%, 99% of the time"
+  asMeasuredBy: ""
+  owners:
+  - "tester@runwhen.com"
+  metricType: gauge
+  configProvided:
+  - name: slx_name
+    value: corestate-cluster-health
