@@ -3,4 +3,4 @@ This is the main repository for community generated RunWhen codecollections. Thi
 
 
 
-Copywright RunWhen 2022
+(c) RunWhen 2022
