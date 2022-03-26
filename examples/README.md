@@ -1,7 +1,7 @@
 # Examples
 This directory contains examples of workspaces and codecollections for the RunWhen platform to illustrate the layout of key elements in the object model.
 
-![img/repo_layout.png]
+![img/repo_layout.png](img/repo_layout.png)
 
 
 ## A Workspace vs a CodeCollection
