@@ -1,7 +1,8 @@
 # Examples
-This directory contains examples of workspaces and codecollections for the RunWhen platform.  
+This directory contains examples of workspaces and codecollections for the RunWhen platform to illustrate the layout of key elements in the object model.
 
-The goal was not an exhaustive set of examples, but rather a small starter set for introductory/learning purposes.
+![img/repo_layout.png]
+
 
 ## A Workspace vs a CodeCollection
 A Workspace on the RunWhen platform is a git repository that holds configuration, and is nearly always private.  A CodeCollection on the other hand is a git repository that holds source code, and is very often public.  The strong separation of private configuration and public source code as a first class citizen on the RunWhen platform is one of the cornerstones of the object model that makes it possible for SREs to share code between individuals, teams and organizations.
